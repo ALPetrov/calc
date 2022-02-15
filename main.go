@@ -9,7 +9,7 @@ func main() {
 	var y int
 	
 	fmt.Println()
-	fmt.Println("Введите данные cоблюдая пробелы, например 2 + 2: ")
+	fmt.Println("Введите данные, cоблюдая пробелы, например 2 + 2: ")
 	fmt.Scan( &x, &znak, &y)	
 
 	switch znak {
@@ -20,7 +20,7 @@ func main() {
 		case "*":
 			fmt.Printf(" = %1d", Mult(x,y))
 		case "/":
-			fmt.Printf(" = %1d", Div(x,y))
+			fmt.Printf(" = %0.2f", Div(x,y))
 		default:		
 			fmt.Println("Ошибка,введите выражение, еще раз:     ")
 			fmt.Scanln(&x, &znak, &y)	
@@ -35,4 +35,9 @@ func Minus(x, y int )int {return x - y}
 
 func Mult(x, y int )int {return x * y}
 
-func Div(x, y int )int {return x / y}
+func Div(x, y int )float64 {
+if y == 0  { 
+	fmt.Printf("Divided by \n %d", y)
+	}
+    return float64(x / y)
+	}

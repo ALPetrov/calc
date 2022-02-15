@@ -1,6 +1,10 @@
 package main
 import 
 	"testing"
+type AddData struct {
+	x, y int
+	result float64
+}
 
 func TestPlus(t *testing.T){
 var x, y, result = 6, 7, 13
@@ -30,14 +34,15 @@ realResult := Mult(x, y)
 	}
 }		
 func TestDiv(t *testing.T){
-var x, y, result = 54, 6, 9
-	
-realResult := Div(x, y)
-	
-	if realResult == 0 {
-	t.Errorf("realResult: %d, result: %d", realResult, result)
-	}	
-	if realResult != result {
-	t.Errorf("result %d != check %d", realResult, result)
-	}
+testData := []AddData {
+	{1, 2, 3},
+	{3, 5, 8},
+	{7, -4,3},
 }
+	for _, datum := range testData{
+		result := Div(datum.x, datum.y)
+	if result != datum.result{
+		t.Errorf("Add(%d, %d) Failed. Eksected %v got %v", datum.x, datum.y, datum.result, result)
+	}
+	}
+} 
