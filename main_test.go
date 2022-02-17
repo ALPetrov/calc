@@ -1,7 +1,10 @@
 package main
-import
+
+import (
 	"testing"
-	"github.com/go-playground/assert/v1.2.1"
+
+	"github.com/go-playground/assert"
+)
 type Data struct {
 	x, y int
 	result int
@@ -13,22 +16,22 @@ testPlusData := [] Data {
 	{-1, 2, 1},
 	{5, 4, 9},
 }
-	for _, datum := range testDivData{
+	for _, datum := range testPlusData{
 		result := Plus(datum.x, datum.y)
 	
-	assert.Equal(t, result, datum, "Error")
+	assert.Equal(t, result, datum.result)
 	}
 }
 func TestMinus(t *testing.T){
 	testMinusData := [] Data {
 		{3, 2, 1},
-		{-1, 2, 3},
+		{-1, 2, -3},
 		{12, 4, 8},
 	}
-		for _, datum := range testDivData{
+		for _, datum := range testMinusData{
 			result := Minus(datum.x, datum.y)
 		
-		assert.Equal(t, result, datum, "Error")
+		assert.Equal(t, result, datum.result)
 	}
 }
 func TestMult(t *testing.T){
@@ -37,10 +40,10 @@ func TestMult(t *testing.T){
 		{-1, 2, -2},
 		{5, 4, 20},
 	}
-		for _, datum := range testDivData{
+		for _, datum := range testMultData{
 			result := Mult(datum.x, datum.y)
 		
-		assert.Equal(t, result, datum, "Error")
+		assert.Equal(t, result, datum.result)
 	}
 }		
 func TestDiv(t *testing.T){
@@ -52,6 +55,6 @@ testDivData := [] Data {
 	for _, datum := range testDivData{
 		result := Div(datum.x, datum.y)
 	
-	assert.Equal(t, result, datum, "Error")
+	assert.Equal(t, result, datum.result)
 	}
 }
