@@ -1,48 +1,57 @@
 package main
-import 
+import
 	"testing"
-type AddData struct {
+	"github.com/go-playground/assert/v1.2.1"
+type Data struct {
 	x, y int
-	result float64
+	result int
 }
 
 func TestPlus(t *testing.T){
-var x, y, result = 6, 7, 13
-
-realResult := Plus(x, y)
-
-	if realResult != result {
-	t.Errorf("result %d != check %d", realResult, result)
+testPlusData := [] Data {
+	{1, 2, 3},
+	{-1, 2, 1},
+	{5, 4, 9},
+}
+	for _, datum := range testDivData{
+		result := Plus(datum.x, datum.y)
+	
+	assert.Equal(t, result, datum, "Error")
 	}
 }
 func TestMinus(t *testing.T){
-var x, y, result = 7, 6, 1
-	
-realResult := Minus(x, y)
-	
-	if realResult != result {	
-	t.Errorf("result %d != check %d", realResult, result)
+	testMinusData := [] Data {
+		{3, 2, 1},
+		{-1, 2, 3},
+		{12, 4, 8},
+	}
+		for _, datum := range testDivData{
+			result := Minus(datum.x, datum.y)
+		
+		assert.Equal(t, result, datum, "Error")
 	}
 }
 func TestMult(t *testing.T){
-var x, y, result = 6, 7, 42
+	testMultData := [] Data {
+		{1, 2, 2},
+		{-1, 2, -2},
+		{5, 4, 20},
+	}
+		for _, datum := range testDivData{
+			result := Mult(datum.x, datum.y)
 		
-realResult := Mult(x, y)
-		
-	if realResult != result {
-	t.Errorf("result %d != check %d", realResult, result)
+		assert.Equal(t, result, datum, "Error")
 	}
 }		
 func TestDiv(t *testing.T){
-testData := []AddData {
-	{1, 2, 3},
-	{3, 5, 8},
-	{7, -4,3},
+testDivData := [] Data {
+	{4, 2, 2},
+	{-42, 7, -6},
+	{12, 4, 3},
 }
-	for _, datum := range testData{
+	for _, datum := range testDivData{
 		result := Div(datum.x, datum.y)
-	if result != datum.result{
-		t.Errorf("Add(%d, %d) Failed. Eksected %v got %v", datum.x, datum.y, datum.result, result)
+	
+	assert.Equal(t, result, datum, "Error")
 	}
-	}
-} 
+}
