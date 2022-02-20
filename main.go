@@ -1,5 +1,5 @@
 package main
-
+// 20.02.22 9-22 проверка
 import "fmt"
 
 	
