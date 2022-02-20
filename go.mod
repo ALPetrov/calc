@@ -1,4 +1,4 @@
-module main.go
+module github.com/ALPetrov/calc.git
 
 go 1.17
 
