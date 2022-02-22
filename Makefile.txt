@@ -1,0 +1,8 @@
+test: main_test.go
+	go run main_test.go
+
+run: main.go
+	go run main.go
+
+Hello: "Finish"
+	echo " Finish operation"
